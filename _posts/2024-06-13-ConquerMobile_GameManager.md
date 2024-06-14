@@ -34,7 +34,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     static GameManager GameMgr;
-    public static GameManager Instance { get { return GameMgr; } }
+    public static GameManager Instance { Init(); get { return GameMgr; } }
 
     void Start()
     {
@@ -48,17 +48,19 @@ public class GameManager : MonoBehaviour
 
     static void Init()
     {
-        if (Instance != null) return;
-
-        GameObject obj = GameObject.Find("GameManger");
-        if (obj == null)
+        if (GameMgr == null)
         {
-            obj = new GameObject { name = "GameManager" };
-            obj.AddComponent<GameManager>();
-        }
 
-        DontDestroyOnLoad(obj); //씬 변경되도 오브젝트 유지
-        GameMgr = obj.GetComponent<GameManager>();
+            GameObject obj = GameObject.Find("GameManger");
+            if (obj == null)
+            {
+                obj = new GameObject { name = "GameManager" };
+                obj.AddComponent<GameManager>();
+            }
+
+            DontDestroyOnLoad(obj); //씬 변경되도 오브젝트 유지
+            GameMgr = obj.GetComponent<GameManager>();
+        }
     }
 }
 
@@ -67,24 +69,26 @@ public class GameManager : MonoBehaviour
 
 - 여러 곳에서 접근 할 수 있도록 static으로 선언한다.
 
-> `public static GameManager Instance { get { return GameMgr; } }`
+> `public static GameManager Instance { Init(); get { return GameMgr; } }`
 
 - 프로퍼티를 사용해 get 접근자를 작성했다.
 
 ```c#
 static void Init()
     {
-        if (Instance != null) return;
-
-        GameObject obj = GameObject.Find("GameManager");
-        if (obj == null)
+        if (GameMgr == null)
         {
-            obj = new GameObject { name = "GameManager" };
-            obj.AddComponent<GameManager>();
-        }
 
-        DontDestroyOnLoad(obj); //씬 변경되도 오브젝트 유지
-        GameMgr = obj.GetComponent<GameManager>();
+            GameObject obj = GameObject.Find("GameManager");
+            if (obj == null)
+            {
+                obj = new GameObject { name = "GameManager" };
+                obj.AddComponent<GameManager>();
+            }
+
+            DontDestroyOnLoad(obj); //씬 변경되도 오브젝트 유지
+            GameMgr = obj.GetComponent<GameManager>();
+        }
     }
 ```
 - Init 함수를 통해 Instance가 이미 존재하면 리턴한다
