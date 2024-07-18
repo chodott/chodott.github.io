@@ -118,7 +118,7 @@ VirtualJoystick 클래스가 상속받은 IBeginDragHandler, IDragHandler, IDrag
 #### - AdjustLever
 오브젝트가 드래그될 때 호출되는 함수이다. <br>
 UI 오브젝트는 Rect Transform 컴포넌트를 통해 스크린 상에서의 위치를 얻을 수 있다. <br>
-anchoredPosition은 앵커를 (0,0)으로 했을 떄의 오브젝트의 위치이다. <br>
+anchoredPosition은 앵커를 (0,0)으로 했을 때의 오브젝트의 위치이다. <br>
 따라서 eventData.position을 rectTransform.anchoredPosition으로 빼게 되면 <br>
 오브젝트의 center, 즉 조이스틱의 중앙에서 input의 위치 벡터를 얻을 수 있다. <br>
 
