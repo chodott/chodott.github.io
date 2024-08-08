@@ -22,7 +22,7 @@ sidebar_main: true
 
 ## <mark style = "background-color : #dcffe4"> 보간 탐색 개념
 
-보간 탐색은 이진 탐색(Binary_Search)과 동일하게 **정렬된 리스트**에서 탐색 범위를 줄여가며 결과를 도출하는 알고리즘이다. <br>
+보간 탐색은 이진 탐색(Binary_Search)과 같이 **정렬된 리스트**에서 탐색 범위를 줄여가며 결과를 도출하는 알고리즘이다. <br>
 
 이진 탐색과의 차이점은 탐색 범위를 정하는 방식이다.<br>
 
